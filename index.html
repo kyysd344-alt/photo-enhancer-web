@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelRefine — Penjernih Foto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand-icon">✦</div>
+          <div>
+            <p class="eyebrow">Photo Editor</p>
+            <h1>PixelRefine</h1>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <label class="button primary" for="fileInput">Upload Foto</label>
+          <input id="fileInput" type="file" accept="image/*" />
+          <button id="resetBtn" class="button ghost" type="button">Reset</button>
+        </div>
+
+        <div class="preset-row">
+          <label for="presetSelect">Preset</label>
+          <select id="presetSelect">
+            <option value="custom">Custom</option>
+            <option value="portrait">Portrait</option>
+            <option value="enhance">Enhance</option>
+            <option value="cinematic">Cinematic</option>
+            <option value="blackwhite">Black &amp; White</option>
+          </select>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="brightness">Brightness</label>
+              <span id="brightnessValue">100%</span>
+            </div>
+            <input id="brightness" type="range" min="0" max="200" value="100" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="contrast">Contrast</label>
+              <span id="contrastValue">100%</span>
+            </div>
+            <input id="contrast" type="range" min="0" max="200" value="100" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="saturation">Saturation</label>
+              <span id="saturationValue">100%</span>
+            </div>
+            <input id="saturation" type="range" min="0" max="200" value="100" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="sharpness">Sharpness</label>
+              <span id="sharpnessValue">0</span>
+            </div>
+            <input id="sharpness" type="range" min="0" max="100" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="denoise">Denoise</label>
+              <span id="denoiseValue">0</span>
+            </div>
+            <input id="denoise" type="range" min="0" max="30" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="warmth">Warmth</label>
+              <span id="warmthValue">0</span>
+            </div>
+            <input id="warmth" type="range" min="-60" max="60" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="grayscale">Black &amp; White</label>
+              <span id="grayscaleValue">0%</span>
+            </div>
+            <input id="grayscale" type="range" min="0" max="100" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="blur">Blur</label>
+              <span id="blurValue">0px</span>
+            </div>
+            <input id="blur" type="range" min="0" max="8" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="label-wrap">
+              <label for="vignette">Vignette</label>
+              <span id="vignetteValue">0%</span>
+            </div>
+            <input id="vignette" type="range" min="0" max="100" value="0" />
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="savePngBtn" class="button primary" type="button">Simpan PNG</button>
+          <button id="saveJpgBtn" class="button accent" type="button">Simpan JPG</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <div class="viewer-header">
+          <div>
+            <p class="eyebrow">Preview</p>
+            <h2>Hasil Edit</h2>
+          </div>
+          <div class="status-pill" id="statusPill">Belum ada foto</div>
+        </div>
+
+        <div class="preview-frame">
+          <canvas id="previewCanvas" width="1200" height="800"></canvas>
+          <div class="placeholder" id="placeholder">
+            <div class="placeholder-icon">🖼️</div>
+            <p>Upload foto untuk memulai edit</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
